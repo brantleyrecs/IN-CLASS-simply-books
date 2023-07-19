@@ -39,7 +39,7 @@ function BookForm({ obj }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (obj.firebaseKey) {
-      updateBook(formInput).then(() => router.push(`/book/${obj.firebaseKey}`));
+      updateBook(formInput).then(() => router.push(`/books/${obj.firebaseKey}`));
     } else {
       const payload = { ...formInput, uid: user.uid };
       createBook(payload).then(({ name }) => {
@@ -50,7 +50,6 @@ function BookForm({ obj }) {
       });
     }
   };
-
 
   return (
     <Form onSubmit={handleSubmit}>
